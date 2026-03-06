@@ -13,13 +13,13 @@ FOR /F "tokens=*" %%I IN ('now') DO (
         SET "now=%%I"
         )
 
-Echo:#-------------------------------------SlowGen---------------------------------------#
+Echo:#---------------------------------CheckGenCheck-------------------------------------#
 Echo:#                                                                                   #
-Echo:#         program:  SlowGen                                                         #
+Echo:#         program:  CheckGenCheck                                                   #
 Echo:#                                                                                   #
-Echo:#         purpose:  Tool to quickly pull info from a iGens and qGens                #
+Echo:#         purpose:  Tool to quickly pull info from GenCheck matches                 #
 Echo:#                                                                                   #
-Echo:#         version:  0.0.1 (.04Mar26.AndrewD)                                        #
+Echo:#         version:  0.0.1 (.05Mar26.AndrewD)                                        #
 Echo:#                                                                                   #
 Echo:#          author:  Andrew Doan                                                     #
 Echo:#                                                                                   #
