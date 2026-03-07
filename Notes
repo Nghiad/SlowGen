@@ -1,0 +1,220 @@
+===========================
+iGen:
+===========================
+
+High- full workflow
+
+[ImporterChild.m,938 20260306 08:47:23,834] Received a DICOM message of type: C-STORE-RQ.
+[ImporterChild.m,945 20260306 08:47:23,834] Received request for C-STORE.
+[ImporterChild.m,1236 20260306 08:47:23,834] Receiving an IMAGE object.
+[ImporterChild.m,1281 20260306 08:47:23,834] Attempting to get next filename from Worker
+[ALIWorkerStub.m,1043 20260306 08:47:23,834] getNextImageFileNameForJob:1983
+[ALIWorkerStudy.m,2332 20260306 08:47:23,834] It took 0.000000 second(s) to get next file name.
+[ALIWorkerStudy.m,4181 20260306 08:47:23,834] isBagSplittingEnabled 0
+[ImporterChild.m,1355 20260306 08:47:23,834] Worker says to save image to \\dc1smartconnect\chrimages$\LOCAL1\20518\32FE588D65254E90896154AA3BEDE6D8\view0343.dcm
+[ImporterConfig.m,7210 20260306 08:47:23,834] It's configured to disable image buffer for the source 'CHF_CT'.
+[ImporterConfig.m,6280 20260306 08:47:23,834] Could not find configuration CHF_CT.DYNAMIC_BUFFER_THRESHOLD. Will use default dynamic buffer threshold.
+[ImporterConfig.m,6287 20260306 08:47:23,834] Dynamic buffer threshold for source CHF_CT: 50 MB
+[ImporterConfig.m,6343 20260306 08:47:23,834] Could not find configuration CHF_CT.DYNAMIC_BUFFER_WRITE_SIZE. Will use default write size.
+[ImporterConfig.m,6350 20260306 08:47:23,834] Dynamic buffer write size for source CHF_CT: 10 MB
+[ImporterChild.m,1402 20260306 08:47:23,834] Incoming object will be received using dynamic buffer. Threshold = 52428800 bytes and write size = 10485760 bytes
+[ImporterChild.m,3474 20260306 08:47:23,834] Finished: 691172 (0x000a8be4) bytes received
+[ImporterChild.m,3616 20260306 08:47:23,834] Study instance UID = '1.2.840.113711.517710.3.12572.794494946.26.2116281012.1150'
+[ImporterChild.m,3816 20260306 08:47:23,834] Saving Study UID 1.2.840.113711.517710.3.12572.794494946.26.2116281012.1150 into private tag (3711,000C)...
+[ImporterChild.m,3912 20260306 08:47:23,834] Series Instance UID = '1.3.12.2.1107.5.1.7.206524.30000026030608273334400000393'
+[ImporterChild.m,3994 20260306 08:47:23,834] SOP Class UID = '1.2.840.10008.5.1.4.1.1.2'
+[ImporterChild.m,4119 20260306 08:47:23,834] Image Instance UID = '1.3.12.2.1107.5.1.7.206524.30000026030608273334400000413'
+[ImporterChild.m,4134 20260306 08:47:23,834] seriesNumber = '4'
+[ImporterChild.m,7428 20260306 08:47:23,834] Modality in the received object = 'CT'
+[ALIWorkerStudy.m,1859 20260306 08:47:23,834] setModality:'CT'
+[ImporterChild.m,7790 20260306 08:47:23,834] No Operator name: DCM_ELEMENTNOTFOUND
+[ImporterChild.m,7900 20260306 08:47:23,834] No Performing Phyisician name: DCM_ELEMENTNOTFOUND
+** Time of this message: Fri Mar 06 2026 08:47:23
+[ImporterChild.m,5890 20260306 08:47:23,834] Storage Callback time log :0.000000s
+[ImporterChild.m,1470 20260306 08:47:23,834] It took 0.000 secs to unblock from SRV_CStoreResponse...()
+[ImporterChild.m,1547 20260306 08:47:23,834] SRV_CStoreResponse...() returned successfully. 
+[ImporterChild.m,1558 20260306 08:47:23,834] Incoming DICOM object has been received in memory
+[ImporterChild.m,1573 20260306 08:47:23,834] Transfer Syntax of received image object is: 1.2.840.10008.1.2.1
+[ImageProcessing.m,240 20260306 08:47:23,834] ProcessImage: fileNameToAdd:'\\dc1smartconnect\chrimages$\LOCAL1\20518\32FE588D65254E90896154AA3BEDE6D8\view0343.dcm'
+compression_ratio if used:10
+source_host_name:'CHF_CT'
+[ImporterConfig.m,5544 20260306 08:47:23,834] Found CT.COMPRESSION_TYPE = "jpeglossless" (cmpType = 2).
+[ImageProcessing.m,1064 20260306 08:47:23,834] Compressing image for primary RAID storage.
+[ImageProcessing.m,1770 20260306 08:47:23,834] Compressing image using method: JPEG Lossless.
+[ImageProcessing.m,1871 20260306 08:47:23,850] Compressed and saving image to file \\dc1smartconnect\chrimages$\LOCAL1\20518\32FE588D65254E90896154AA3BEDE6D8\view0343.dcm
+[ImageProcessing.m,1135 20260306 08:47:23,850] ProcessImage Time Log :0.015624s
+[ImporterChild.m,10665 20260306 08:47:23,850] It took 0.016 secs to process the image in memory
+[ImporterChild.m,10813 20260306 08:47:23,850] Saved image Instance UID = 1.3.12.2.1107.5.1.7.206524.30000026030608273334400000413
+[ImporterChild.m,10869 20260306 08:47:23,850] Saved SOP Class UID = SB
+[ImporterChild.m,10886 20260306 08:47:23,850] Instance number of received image object is: 17
+[ImporterChild.m,10901 20260306 08:47:23,850] Bits allocated is 16
+[ImporterChild.m,11010 20260306 08:47:23,850] Adding file to ALIWorkerStudy
+[ALIWorkerStudy.m,2573 20260306 08:47:23,850] addFile:'\\dc1smartconnect\chrimages$\LOCAL1\20518\32FE588D65254E90896154AA3BEDE6D8\view0343.dcm' series:'1.3.12.2.1107.5.1.7.206524.30000026030608273334400000393' seriesNum:4 seriesDesc:'Cor Soft 2mm Br40'
+[ALIWorkerStub.m,1302 20260306 08:47:23,850] postFile:'\\dc1smartconnect\chrimages$\LOCAL1\20518\32FE588D65254E90896154AA3BEDE6D8\view0343.dcm' 
+ seriesUID:'1.3.12.2.1107.5.1.7.206524.30000026030608273334400000393'
+imageUID:'1.3.12.2.1107.5.1.7.206524.30000026030608273334400000413' 
+[ImporterChild.m,11041 20260306 08:47:23,850] It took 0.000 secs to parse header and add image file to PACS of which 0.000000s was for file posting
+[ImporterChild.m,1814 20260306 08:47:23,850] Importer association handler in 0.000000s. About to handle next image.
+
+============================================================================================================
+
+High- isolated:
+
+[ImporterChild.m,938 20260306 08:48:20,998] Received a DICOM message of type: C-STORE-RQ.
+[ImporterChild.m,945 20260306 08:48:20,998] Received request for C-STORE.
+[ImporterChild.m,1236 20260306 08:48:20,998] Receiving an IMAGE object.
+[ImporterChild.m,3474 20260306 08:48:21,013] Finished: 691190 (0x000a8bf6) bytes received
+[ImporterChild.m,1470 20260306 08:48:21,013] It took 0.016 secs to unblock from SRV_CStoreResponse...()
+[ImageProcessing.m,1135 20260306 08:48:21,030] ProcessImage Time Log :0.016784s
+[ImporterChild.m,10665 20260306 08:48:21,030] It took 0.017 secs to process the image in memory
+[ImporterChild.m,11041 20260306 08:48:21,071] It took 0.041 secs to parse header and add image file to PACS of which 0.041349s was for file posting
+[ImporterChild.m,1814 20260306 08:48:21,071] Importer association handler in 0.000000s. About to handle next image.
+
+============================================================================================================
+
+Low- isolated:
+
+[ImporterChild.m,1402 20251118 10:28:12,410] Incoming object will be received using dynamic buffer. Threshold = 52428800 bytes and write size = 10485760 bytes
+[storage.c,3540 20251118 10:28:12,519] Took 109.000 ms to receive C-STORE-RQ Data Set from the SCU.
+[storage.c,3659 20251118 10:28:12,519] Took 0.000 ms to parse the received C-STORE-RQ Data Set.
+[ImporterChild.m,3474 20251118 10:28:12,519] Finished: 4196780 (0x004009ac) bytes received
+[ImporterChild.m,5890 20251118 10:28:12,535] Storage Callback time log :0.015626s
+[storage.c,3908 20251118 10:28:12,551] Took a total of 141.000 ms to receive the C-STORE-RQ Data Set, parse it, and send the C-STORE-RSP to the SCU.
+[storage.c,3915 20251118 10:28:12,551] This included 109.000 ms to complete the following DICOM Message communication:
+[storage.c,3919 20251118 10:28:12,551] 	109.000 ms to receive C-STORE-RQ Data Set.
+[storage.c,3922 20251118 10:28:12,551] 	0.000 ms to send C-STORE-RSP Command.
+[storage.c,3925 20251118 10:28:12,551] It also required 0.000 ms to parse the received C-STORE-RQ Data Set (the received DICOM byte stream in memory).
+[ImporterChild.m,1470 20251118 10:28:12,551] It took 0.141 secs to unblock from SRV_CStoreResponse...()
+[ImporterChild.m,1547 20251118 10:28:12,551] SRV_CStoreResponse...() returned successfully. 
+[ImporterChild.m,1558 20251118 10:28:12,551] Incoming DICOM object has been received in memory
+[ImageProcessing.m,1096 20251118 10:28:12,551] Saving image to file \\dc1smartconnect\chrimages$\LOCAL2\20410\41B87C2EF4B34F09891B6E31736CE5FA\view0009.dcm
+[ImageProcessing.m,1135 20251118 10:28:12,582] ProcessImage Time Log :0.031253s
+[ImporterChild.m,10665 20251118 10:28:12,582] It took 0.031 secs to process the image in memory
+[ImporterChild.m,11041 20251118 10:28:12,629] It took 0.047 secs to parse header and add image file to PACS of which 0.046880s was for file posting
+[ImporterChild.m,1814 20251118 10:28:12,629] Importer association handler in 0.000000s. About to handle next image.
+[srv2.c,427 20251118 10:28:12,629] Beginning to read a COMMAND PDV
+[dulfsm.c,5966 20251118 10:28:12,629] A-RELEASE-RQ PDU Size (Length+6): 10 (0xa)
+
+============================================================================================================
+
+===========================
+GenCheck
+===========================
+
+Usage Instructions:
+
+C:\Program Files (x86)\McKSupport\Tools>GenCheck.exe /?
+
+Program:   GenCheck
+Purpose:   Scans iGens, qGens, eGens
+Version:   3.0.14 (2022-08-26)
+Author:    Scott Allard
+
+Usage: gencheck [[[-m] host1 [etc.]] | [-mx host1 [etc.]]] [-l logCount] [-p phiCount] [-np | -ap]
+                [[-srv host1 [etc.]] | [-ex host1 [etc.]]] [-src source1 [etc.]] [-s searchTerm [etc.]]
+                [-af arcFilter1 [etc.]] [-e] [-i] [-q] [-a] [-g] [-ms] [-nt TimeStatement] [-ot TimeStatement]
+
+where -m indicates the DICOM source hostnames against which to search and display
+         Note: wildcards are supported in source hostNames
+         Note: if applied as first arguments, -m is not required for DICOM Source HostNames
+where -mx indicates a list of DICOM source hostname in which to exclude the search for (opposite of -m)
+         Note: wildcards are NOT supported in source hostNames
+
+where -l indicates the number of iGens/qGens/eGens to dump per DICOM source
+where -p indicates the number of iGens/qGens/eGens for which to search for and display PHI (default=1)
+
+where -ap indicates to display PHI for all iGens/qGens/eGens
+where -np indicates not to display any PHI for any iGens/qGens/eGens
+
+where -srv indicates a list of server in which to search for phi (default=all)
+where -ex indicates a list of server in which to exclude the search for phi (opposite of -srv)
+where -src indicates to limit the output to the files that have 'setSourceName' specified in this list (default=all)
+where -s indicates to search igen/qgen/egen for the provided search terms
+where -af indicates a list of archive controllers (DICOM) to limit the search to
+
+where -e indicates to filter down to show eGens (default=all)
+where -i indicates to filter down to show iGens (default=all)
+where -q indicates to filter down to show qGens (default=all)
+where -a indicates to put all igens into one pool instead of breaking them down by host
+where -g indicates to also include logs in staging/Importer folder to search
+where -ms indicates to show a summary of modality hosts affected since the time stated by '-nt'
+         Note: cannot be used with '-a'
+
+where -nt TimeStatement indicates to only include iGens/qGens/eGens with last modified time newer than TimeStatement
+where -ot TimeStatement indicates to only include iGens/qGens/eGens with last modified time older than TimeStatement
+
+Note: TimeStatements can be formatted as "YYYY-MM-DD HH:MI:SS", "Now", or
+        "X <second[s] | minute[s] | hour[s] | day[s] | week[s] | month[s] | year[s]> <ago | from now>"
+
+      Please remember to wrap double quotes around statements with spaces!!
+      ---------------------------------------------------------------------
+
+============================================================================================================
+
+Example Output:
+
+C:\dev\tools\c#\SupportTools\GenCheck\bin\Release>gencheck hmi1152-sallard
+
+#---------------------------------------------------------------------------------#
+#                                                                                 #
+# Program:        GenCheck                                                        #
+#                                                                                 #
+# Description:    Scans iGens, qGens, eGens                                       #
+#                                                                                 #
+# Version:        3.0.0 (2015-05-07)                                              #
+#                                                                                 #
+# Author:         Scott Allard                                                    #
+#                                                                                 #
+# PID:            53804                                                           #
+#                                                                                 #
+#---------------------------------------------------------------------------------#
+RunTime: 2015-08-04 10:26:06.451
+
+Modality HostNames:     hmi1152-sallard
+Server HostNames:       <none>
+Indexing AEIDs...OK
+Pulling ALI Log Paths...OK
+Scanning for logs...
+Scanning for logs complete
+Processing igens...Done
+#------------------------------------------------------------------------------------------------------#
+
+  hmi1152-sallard
+  ---------------
+
+      Most recent iGen:   2012-12-13 01:05:03 on hmi1108-sallard
+      Most recent qGen:   2011-08-31 11:58:54 on hmi1108-sallard
+
+    iGens [10]:
+    -----------
+      2012-12-13 01:05:03    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_6.log
+                                   Modality:                OT
+                                   PatientMedicalID:        00023854
+                                   PatientLastName:         SendTest_00003675
+                                   PatientFirstName:
+                                   AccessionNumber:
+                                   SourceName:              HMI1152-SALLARD
+      2012-12-13 01:04:54    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_5.log
+      2012-12-13 01:04:43    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_4.log
+      2012-12-13 01:04:34    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_3.log
+      2012-12-13 09:07:42    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_2.log
+      2012-12-13 09:07:29    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_1.log
+      2012-12-13 09:04:29    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_0.log
+      2012-12-13 09:01:42    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_9.log
+      2012-12-13 08:55:29    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_8.log
+      2012-12-13 08:49:28    \\hmi1108-sallard\ali\site\log\igen_hmi1152-sallard_7.log
+
+    qGens [9]:
+    ----------
+      2011-08-31 11:58:54    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_8.log
+                               [No PHI Found...]
+      2011-08-31 11:58:14    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_7.log
+      2011-08-31 11:55:45    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_6.log
+      2011-08-31 11:55:44    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_5.log
+      2011-08-31 11:47:04    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_4.log
+      2011-08-31 11:47:04    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_3.log
+      2011-08-31 11:45:45    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_2.log
+      2011-08-31 11:45:44    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_1.log
+      2011-08-31 11:35:47    \\hmi1108-sallard\ali\site\log\qgen_hmi1152-sallard_0.log
+
+#------------------------------------------------------------------------------------------------------#
