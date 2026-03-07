@@ -29,7 +29,6 @@ High- full workflow
 [ALIWorkerStudy.m,1859 20260306 08:47:23,834] setModality:'CT'
 [ImporterChild.m,7790 20260306 08:47:23,834] No Operator name: DCM_ELEMENTNOTFOUND
 [ImporterChild.m,7900 20260306 08:47:23,834] No Performing Phyisician name: DCM_ELEMENTNOTFOUND
-** Time of this message: Fri Mar 06 2026 08:47:23
 [ImporterChild.m,5890 20260306 08:47:23,834] Storage Callback time log :0.000000s
 [ImporterChild.m,1470 20260306 08:47:23,834] It took 0.000 secs to unblock from SRV_CStoreResponse...()
 [ImporterChild.m,1547 20260306 08:47:23,834] SRV_CStoreResponse...() returned successfully. 
@@ -152,8 +151,6 @@ Note: TimeStatements can be formatted as "YYYY-MM-DD HH:MI:SS", "Now", or
 ============================================================================================================
 
 Example Output:
-
-C:\dev\tools\c#\SupportTools\GenCheck\bin\Release>gencheck hmi1152-sallard
 
 #---------------------------------------------------------------------------------#
 #                                                                                 #
