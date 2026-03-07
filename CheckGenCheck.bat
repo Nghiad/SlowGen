@@ -302,15 +302,17 @@ Echo "Usage: CheckGenCheck [-m|-s] <source> [-i|-q] [-d] [-e] [-l <value>] [-nt|
 Echo.
 Echo: Options:
 Echo: [required] <source>
-Echo: [Optional] -m  Specifies <source>
 Echo: [Optional] -s  Specifies <source>
-Echo: [Optional] -i  Only search iGens
-Echo: [Optional] -q  Only search qGens
 Echo: [Optional] -e  Search ERRORs in igen/qgen
 Echo: [Optional] -d  Show more details per igen/qgen
+Echo: [Optional] -debug
+
+Echo: Available options from GenCheck:
+Echo: [Optional] -m  Specifies <source>
+Echo: [Optional] -i  Only search iGens
+Echo: [Optional] -q  Only search qGens
 Echo: [Optional] -l  Specifies how many log matches to search; default is 10 matches
 Echo: [Optional] -nt Filters for logs newer than <time metric>
 Echo: [Optional] -ot Filters for logs older than <time metric>
-Echo: [Optional] -debug
 
 exit /b
