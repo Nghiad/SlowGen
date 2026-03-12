@@ -1,8 +1,9 @@
+=============
 Introduction
 =============
 SlowGen is an internal tool designed to quickly parse iGens and qGens for slowness. The tool is build to pull specific logs in an import or query workflow to find where delays appear within the workflow. This tool can also search for any logs that start with "ERROR" to quickly check for failures.
 
-
+=============
 Installation
 =============
 This tool is pending approval to be added into toolkit. Until then, you will need to manually copy this tool and paste it onto a site to use.
@@ -16,7 +17,7 @@ Steps:
 	6. From the temporary directory, use the tool with "SlowGen.bat"
 		a) From any directory, call the tool with the UNC path
 
-
+==============================
 SlowGen Tool Help/Usage Page
 ==============================
 
@@ -40,6 +41,7 @@ Available options from GenCheck:
 [Optional] -ot Filters for logs older than <time metric>
 
 
+==========
 Functions
 ==========
 -       Dumps the time log summary of the iGen or qGen
@@ -50,6 +52,7 @@ Functions
 (-f)    Specifies specific log file to parse
 
 
+==============================
 Commands called in the script
 ==============================
 hostname
