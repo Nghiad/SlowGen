@@ -19,7 +19,7 @@ Echo:#         program:  SlowGen                                                
 Echo:#                                                                                   #
 Echo:#         purpose:  Tool to quickly pull info from GenCheck matches                 #
 Echo:#                                                                                   #
-Echo:#         version:  0.9.0 (.12Mar26.AndrewD)                                        #
+Echo:#         version:  0.8.0 (.11Mar26.AndrewD)                                        #
 Echo:#                                                                                   #
 Echo:#          author:  Andrew Doan                                                     #
 Echo:#                                                                                   #
@@ -467,21 +467,23 @@ Echo: SlowGen Tool Help Page
 Echo.
 Echo: Description: Quickly pull information directly from a GenCheck
 Echo.
-Echo "Usage: SlowGen [-m|-s] <source> [-f <file>] [-i|-q] [-d] [-e] [-l <value>] [-nt|-ot <time metric>]"
+Echo: Usage: SlowGen [-m^|-s {source}] [-f {file}] [-i^|-q] [-d] [-e] [-l {value}] [-nt^|-ot {time metric}]
+Echo.
+Echo: Required:
+Echo: [-s {source}]  Search for igen/qgen for this source
+Echo:     OR
+Echo: [-f {file}]    Parse specified log
 Echo.
 Echo: Options:
-Echo: [required] <source>
-Echo: [Optional] -s  Specifies <source>
-Echo: [Optional] -f  Specifies specific igen/qgen file to process
-Echo: [Optional] -e  Search for ERRORs in the igen/qgen
-Echo: [Optional] -d  Show more details per igen/qgen
+Echo: [-e]  Search for ERRORs in the igen/qgen
+Echo: [-d]  Show more details per igen/qgen
 Echo.
 Echo: Available options from GenCheck:
-Echo: [Optional] -m  Specifies <source>
-Echo: [Optional] -i  Only search iGens
-Echo: [Optional] -q  Only search qGens
-Echo: [Optional] -l  Specifies how many log matches to search; default is 10 matches
-Echo: [Optional] -nt Filters for logs newer than <time metric>
-Echo: [Optional] -ot Filters for logs older than <time metric>
+Echo: [-m]  {source}
+Echo: [-i]  Only search iGens
+Echo: [-q]  Only search qGens
+Echo: [-l]  Specifies how many log matches to search; default is 10 matches
+Echo: [-nt] Filters for logs newer than {time metric}
+Echo: [-ot] Filters for logs older than {time metric}
 
 exit /b
