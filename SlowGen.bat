@@ -458,13 +458,13 @@ Echo: SlowGen Tool Help Page
 Echo.
 Echo: Description: Quickly pull information directly from a GenCheck
 Echo.
-Echo "Usage: CheckGenCheck [-m|-s] <source> [-f <file>] [-i|-q] [-d] [-e] [-l <value>] [-nt|-ot <time metric>]"
+Echo "Usage: SlowGen [-m|-s] <source> [-f <file>] [-i|-q] [-d] [-e] [-l <value>] [-nt|-ot <time metric>]"
 Echo.
 Echo: Options:
 Echo: [required] <source>
 Echo: [Optional] -s  Specifies <source>
-Echo: [Optional] -f  Specifies specific igen/qgen file to dump
-Echo: [Optional] -e  Search ERRORs in igen/qgen
+Echo: [Optional] -f  Specifies specific igen/qgen file to process
+Echo: [Optional] -e  Search for ERRORs in the igen/qgen
 Echo: [Optional] -d  Show more details per igen/qgen
 Echo.
 Echo: Available options from GenCheck:
