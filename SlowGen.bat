@@ -19,7 +19,7 @@ Echo:#         program:  SlowGen                                                
 Echo:#                                                                                   #
 Echo:#         purpose:  Tool to quickly pull info from GenCheck matches                 #
 Echo:#                                                                                   #
-Echo:#         version:  0.8.0 (.11Mar26.AndrewD)                                        #
+Echo:#         version:  0.9.0 (.12Mar26.AndrewD)                                        #
 Echo:#                                                                                   #
 Echo:#          author:  Andrew Doan                                                     #
 Echo:#                                                                                   #
@@ -35,6 +35,9 @@ if "%~1"=="" (
 	goto :eof
 	) else (
 		SET "source=%~1"
+		if "!source:~0,1!"=="-" (
+			SET "source="
+			goto parse )
 		shift & goto parse
 		)
 		
@@ -108,28 +111,34 @@ shift
 goto parse
 
 :main
-
-if not defined source (
-	Echo Did not specify source, exiting...
-	goto :eof
-	)
 	
 if defined file (
 	if not exist !file! (
 		Echo Invalid input file to process, exiting...
 		goto :eof
 		) else (
+			FOR %%i IN ("!file!") DO (
+				SET "foundlog=%%~nxi"
+				)
+			FOR /F "tokens=2 delims=_" %%T IN ("!foundlog!") DO (
+				SET "source=%%T"
+				)
 			goto :SingleSearch
 			)
 	)
+	
+if not defined source (
+	Echo Did not specify source, exiting...
+	goto :eof
+	)
 
 Echo.
-Echo: -------- Log Times --------
+Echo ========== Log Times ==========
 Echo.
 FOR /F "tokens=3" %%A in ('gencheck !source! !GenFilter! !listmore! !newerthan! !olderthan! ^| grep gen_ ') DO (
 	SET "foundlog=%%~nxA"
 	FOR %%D in ('grep "Trace level has been set to tr_LOW" %%A') DO (SET "lowlogging=1")
-	Echo %%A:
+	Echo %%A :
 	Echo.
 	if /I "!foundlog:~0,4!"=="igen" (
 		if defined detailed (
@@ -146,7 +155,7 @@ REM LOW LEVEL LOGS SECTION END
 
 			FOR /F "tokens=3,4*" %%X in ('findstr /B /C:"[ImporterChild.m," %%A ^| findstr /C:"Received a DICOM message of type" /C:"bytes received" /C:"secs to process the image in memory" /C:"secs to parse header and add image file to PACS" /C:"About to handle next image" 2^>nul') DO (
 				Echo %%X %%Y %%Z
-				if %%Y=="Importer" (
+				if "%%Y"=="Importer" (
 					Echo.
 					)
 				)
@@ -211,7 +220,7 @@ REM LOW LEVEL LOGS SECTION END
 				
 REM C-MOVE SECTION START
 	
-			if querylevel="C-MOVE." (
+			if "!querylevel!"=="C-MOVE." (
 				Echo.
 				FOR /F "tokens=3*" %%O in ('grep "requests C-MOVE to destination AE TITLE" %%A') DO (
 					SET "string=%%O %%P"
@@ -246,7 +255,7 @@ REM C-MOVE SECTION END
 		)
 	if defined errorcheck (
 		Echo.
-		Echo ===== Error Check =====
+		Echo ========= Error Check =========
 		Echo.
 		if defined detailed (
 			FOR /F "tokens=1,2,4*" %%D in ('findstr /B "ERROR" %%A 2^>nul') DO (
@@ -280,18 +289,18 @@ if not defined foundlog (
 	)
 	
 if defined errorcheck (
+	if not defined detailed (
+		Echo.
+		Echo Configuration Errors are ignored; use with -d to show all ERRORs
+		)
 	Echo.
-	Echo ------ !source! Configurations ------
+	Echo ======== !source! Configurations ========
 	Echo.
 	FOR /F "tokens=5* delims=\: " %%I IN ('findstr /I "!source!" "%ALI_SITE_CONFIG_PATH%\*.site" 2^>nul') DO (
 		Echo %%I: %%J
 		)
 	Echo.
 	Echo -------------------------------------
-	if not defined detailed (
-		Echo.
-		Echo Configuration Errors are ignored; use with -d to show all ERRORs
-		)
 	)
 
 Echo.
@@ -301,12 +310,12 @@ GOTO :eof
 :SingleSearch
 
 Echo.
-Echo: -------- Log Times --------
+Echo ========== Log Times ==========
 Echo.
 FOR %%D in ('findstr /C:"Trace level has been set to tr_LOW" !file! 2^>nul') DO (SET "lowlogging=1")
-Echo !file!:
+Echo !file! :
 Echo.
-if /I "!file:~0,4!"=="igen" (
+if /I "!foundlog:~0,4!"=="igen" (
 	if defined detailed (
 		FOR /F "tokens=3*" %%X in ('grep "Association handle is valid" !file!') DO (
 			Echo %%X %%Y
@@ -314,7 +323,7 @@ if /I "!file:~0,4!"=="igen" (
 		Echo.	
 		FOR /F "tokens=3,4*" %%X in ('findstr /B /C:"[ImporterChild.m," !file! ^| findstr /C:"Received a DICOM message of type" /C:"bytes received" /C:"secs to process the image in memory" /C:"secs to parse header and add image file to PACS" /C:"About to handle next image" 2^>nul') DO (
 			Echo %%X %%Y %%Z
-			if %%Y=="Importer" (
+			if "%%Y"=="Importer" (
 				Echo.
 				)
 			)
@@ -330,7 +339,7 @@ if /I "!file:~0,4!"=="igen" (
 		)
 	)
 
-if /I "!file:~0,4!"=="qgen" (
+if /I "!foundlog:~0,4!"=="qgen" (
 	if defined detailed (
 		FOR /F "tokens=3*" %%X in ('grep "Association handle is valid" !file!') DO (
 			Echo %%X %%Y
@@ -372,7 +381,7 @@ if /I "!file:~0,4!"=="qgen" (
 			Echo %%J %%K
 			)
 
-		if querylevel="C-MOVE." (
+		if "!querylevel!"=="C-MOVE." (
 			Echo.
 			FOR /F "tokens=3*" %%O in ('grep "requests C-MOVE to destination AE TITLE" !file!') DO (
 				SET "string=%%O %%P"
@@ -406,7 +415,7 @@ if not defined foundtime (
 
 if defined errorcheck (
 	Echo.
-	Echo ===== Error Check =====
+	Echo ========= Error Check =========
 	Echo.
 	if defined detailed (
 		FOR /F "tokens=1,2,4*" %%D in ('findstr /B "ERROR" !file! 2^>nul') DO (
@@ -433,18 +442,18 @@ if not defined foundlog (
 	)
 
 if defined errorcheck (
+	if not defined detailed (
+		Echo.
+		Echo Configuration Errors are ignored; use with -d to show all ERRORs
+		)
 	Echo.
-	Echo ------ !source! Configurations ------
+	Echo ======== !source! Configurations ========
 	Echo.
 	FOR /F "tokens=5* delims=\: " %%I IN ('findstr /I "!source!" "%ALI_SITE_CONFIG_PATH%\*.site" 2^>nul') DO (
 		Echo %%I: %%J
 		)
 	Echo.
 	Echo -------------------------------------
-	if not defined detailed (
-		Echo.
-		Echo Configuration Errors are ignored; use with -d to show all ERRORs
-		)
 	)
 
 Echo.
