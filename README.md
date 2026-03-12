@@ -1,4 +1,3 @@
-=============
 Introduction
 =============
 SlowGen is an internal tool designed to quickly parse iGens and qGens for slowness. The tool is build to pull specific logs in an import or query workflow to find where delays appear within the workflow. This tool can also search for any logs that start with "ERROR" to quickly check for failures.
