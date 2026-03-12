@@ -21,25 +21,26 @@ Steps:
 SlowGen Tool Help/Usage Page
 ==============================
 
-Description: Quickly pull information directly from GenCheck matches
+Description: Quickly pull information directly from a GenCheck
 
-Usage: SlowGen [-m|-s] <source> [-f <file>] [-i|-q] [-d] [-e] [-l <value>] [-nt|-ot <time metric>]
+Usage: SlowGen [-m|-s {source}] [-f {file}] [-i|-q] [-d] [-e] [-l {value}] [-nt|-ot {time metric}]
+
+Required:
+[-s {source}]  Search for igen/qgen for this source
+     OR
+[-f {file}]    Parse specified log
 
 Options:
-[required] <source>
-[Optional] -s  Specifies <source>
-[Optional] -f  Specifies specific igen/qgen file to process
-[Optional] -e  Search for ERRORs in the igen/qgen
-[Optional] -d  Show more details per igen/qgen
+[-e]  Search for ERRORs in the igen/qgen
+[-d]  Show more details per igen/qgen
 
 Available options from GenCheck:
-[Optional] -m  Specifies <source>
-[Optional] -i  Only search iGens
-[Optional] -q  Only search qGens
-[Optional] -l  Specifies how many log matches to search; default is 10 matches
-[Optional] -nt Filters for logs newer than <time metric>
-[Optional] -ot Filters for logs older than <time metric>
-
+[-m]  {source}
+[-i]  Only search iGens
+[-q]  Only search qGens
+[-l]  Specifies how many log matches to search; default is 10 matches
+[-nt] Filters for logs newer than {time metric}
+[-ot] Filters for logs older than {time metric}
 
 ==========
 Functions
@@ -50,7 +51,6 @@ Functions
 (-e)    Dump's the source's configurations in all site files
 (-e -d) Search for all ERRORs in the iGen or qGen
 (-f)    Specifies specific log file to parse
-
 
 ==============================
 Commands called in the script
