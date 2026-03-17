@@ -19,7 +19,7 @@ Echo:#         program:  SlowGen                                                
 Echo:#                                                                                   #
 Echo:#         purpose:  Tool to quickly pull info from GenCheck matches                 #
 Echo:#                                                                                   #
-Echo:#         version:  0.9.0 (.17Mar26.AndrewD)                                        #
+Echo:#         version:  0.8.0 (.11Mar26.AndrewD)                                        #
 Echo:#                                                                                   #
 Echo:#          author:  Andrew Doan                                                     #
 Echo:#                                                                                   #
@@ -98,12 +98,12 @@ if /I "%~1"=="-l" (
 	)
 
 if /I "%~1"=="-nt" (
-	SET "newerthan=-nt "%~2""
+	SET "newerthan=-nt %~2"
 	shift & shift & goto parse
 	)
 
 if /I "%~1"=="-ot" (
-	SET "olderthan=-ot "%~2""
+	SET "olderthan=-ot %~2"
 	shift & shift & goto parse
 	)
 	
@@ -139,6 +139,11 @@ FOR /F "tokens=3" %%A in ('gencheck !source! !GenFilter! !listmore! !newerthan! 
 	SET "foundlog=%%~nxA"
 	FOR %%D in ('grep "Trace level has been set to tr_LOW" %%A') DO (SET "lowlogging=1")
 	Echo %%A :
+	Echo.
+	if defined lowlogging ( Echo Logging Level: LOW ) else ( Logging Level: HIGH )
+	FOR /F %%T in ('grep -c "Received a DICOM message of type" %%A') DO (
+		Echo Images imported: %%T
+		)
 	Echo.
 	if /I "!foundlog:~0,4!"=="igen" (
 		if defined detailed (
@@ -314,6 +319,11 @@ Echo ========== Log Times ==========
 Echo.
 FOR %%D in ('findstr /C:"Trace level has been set to tr_LOW" !file! 2^>nul') DO (SET "lowlogging=1")
 Echo !file! :
+Echo.
+if defined lowlogging ( Echo Logging Level: LOW ) else ( Logging Level: HIGH )
+FOR /F %%T in ('grep -c "Received a DICOM message of type" !file!') DO (
+	Echo Images imported: %%T
+	)
 Echo.
 if /I "!foundlog:~0,4!"=="igen" (
 	if defined detailed (
