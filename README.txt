@@ -1,7 +1,7 @@
 =============
 Introduction
 =============
-SlowGen is an internal tool designed to quickly parse iGens and qGens for slowness. The tool is build to pull specific logs in an import or query workflow to find where delays appear within the workflow. This tool can also search for any logs that start with "ERROR" to quickly check for failures.
+SlowGen is an internal tool designed to quickly parse iGens and qGens for slowness and errors. The tool is build to search for specific logs in an igen or qgen to find where delays appear within the workflow. This tool can also search for any logs that start with "ERROR" to quickly check for failures.
 
 =============
 Installation
@@ -47,9 +47,8 @@ Functions
 ==========
 -       Dumps the time log summary of the iGen or qGen
 (-d)    Dumps additional logs highlighting the import/query workflow
-(-e)    Search for ERRORs in the iGen or qGen; ignores configuration errors
-(-e)    Dump's the source's configurations in all site files
-(-e -d) Search for all ERRORs in the iGen or qGen
+(-e)    Dump's the source's configurations in all site files and search for ERRORs in the iGen or qGen; ignores configuration errors
+(-e -d) Search for all ERRORs in the iGen or qGen; includes configuration errors
 (-f)    Specifies specific log file to parse
 
 ==============================
