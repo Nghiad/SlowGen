@@ -19,7 +19,7 @@ Echo:#         program:  SlowGen                                                
 Echo:#                                                                                   #
 Echo:#         purpose:  Tool to quickly pull info from GenCheck matches                 #
 Echo:#                                                                                   #
-Echo:#         version:  0.8.0 (.11Mar26.AndrewD)                                        #
+Echo:#         version:  0.9.0 (.17Mar26.AndrewD)                                        #
 Echo:#                                                                                   #
 Echo:#          author:  Andrew Doan                                                     #
 Echo:#                                                                                   #
@@ -98,12 +98,12 @@ if /I "%~1"=="-l" (
 	)
 
 if /I "%~1"=="-nt" (
-	SET "newerthan=-nt %~2"
+	SET "newerthan=-nt "%~2""
 	shift & shift & goto parse
 	)
 
 if /I "%~1"=="-ot" (
-	SET "olderthan=-ot %~2"
+	SET "olderthan=-ot "%~2""
 	shift & shift & goto parse
 	)
 	
@@ -187,11 +187,11 @@ REM LOW LEVEL LOGS SECTION START
 			if defined lowlogging (
 				FOR /F "delims=" %%M in ('grep "Query filter attributes" %%A') DO (
 					SET "qfilter=1"
-					Echo %%M %%N
+					Echo %%M
 					)	
 				if defined qfilter (
 					FOR /F "delims=" %%M in ('grep -A 16 "Query filter attributes" %%A ^| grep -v "Query\|{\|}\|<\|message:"') DO (
-						Echo %%M %%N
+						Echo %%M
 						)
 					Echo.
 					)
@@ -352,11 +352,11 @@ if /I "!foundlog:~0,4!"=="qgen" (
 		if defined lowlogging (
 			FOR /F "delims=" %%M in ('grep "Query filter attributes" !file!') DO (
 				SET "qfilter=1"
-				Echo %%M %%N
+				Echo %%M
 				)	
 			if defined qfilter (
 				FOR /F "delims=" %%M in ('grep -A 16 "Query filter attributes" !file! ^| grep -v "Query\|{\|}\|<\|message:"') DO (
-					Echo %%M %%N
+					Echo %%M
 					)
 				Echo.
 				)
